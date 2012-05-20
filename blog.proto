@@ -1,0 +1,15 @@
+package blog;
+
+message Series
+{
+	required string name = 1;
+	required string startPage = 2;
+	required string titlePattern = 3;
+	required string contentPattern = 4;
+	required string nextPattern = 5;
+}
+
+message All
+{
+	repeated Series series = 1;
+}

@@ -1,0 +1,8 @@
+series.list
+*.mobi
+*.zip
+cache
+*_pb2.py
+dump.html
+dump
+Tales of Mu*

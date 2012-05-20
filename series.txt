@@ -1,0 +1,8 @@
+series
+{
+	name: "Tales of Mu"
+	startPage: "http://www.talesofmu.com/story/book01/1"
+	titlePattern: "<div class=\"date\"><h2>(.+?)</h2>"
+	contentPattern: "<div class=\"entry\">(.*?)<center>"
+	nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
+}
