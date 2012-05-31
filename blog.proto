@@ -3,10 +3,12 @@ package blog;
 message Series
 {
 	required string name = 1;
-	required string startPage = 2;
-	required string titlePattern = 3;
-	required string contentPattern = 4;
-	required string nextPattern = 5;
+	required string description = 2;
+	optional string author = 3 [default = "Various"];
+	required string startPage = 4;
+	required string titlePattern = 5;
+	required string contentPattern = 6;
+	required string nextPattern = 7;
 }
 
 message All

@@ -7,18 +7,16 @@ from hashlib import md5
 
 c = Cache()
 
-series = "Tales of Mu"
-
 db = All()
 db.ParseFromString(open("series.list", "rb").read())
 
 for s in db.series:
-	if s.name == series:
+	if s.name in argv[1:]:
 		print s
 		page = s.startPage
 		index = 1
 		while page!=None:
-			folder = "%s #%02d"%(s.name, index)
+			folder = "%s #%02d"%(s.description, index)
 			if not exists(folder):
 				mkdir(folder)
 			toc = open(join(folder, "toc.html"), "wb")
