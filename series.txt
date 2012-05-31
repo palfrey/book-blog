@@ -1,8 +1,26 @@
-series
-{
-	name: "Tales of Mu"
-	startPage: "http://www.talesofmu.com/story/book01/1"
-	titlePattern: "<div class=\"date\"><h2>(.+?)</h2>"
-	contentPattern: "<div class=\"entry\">(.*?)<center>"
-	nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
+series {
+  name: "365tomorrows"
+  description: "365 Tomorrows"
+  startPage: "http://365tomorrows.com/08/02/keeping-safe/"
+  titlePattern: "<h1><a href=\"[^\"]+\" rel=\"bookmark\" title=\"Permanent Link to [^\"]+\">(.+?)</a></h1>"
+  contentPattern: "<span class=\"entryBy\">(.+?)<div style=\"clear:both;\"></div>"
+  nextPattern: "Next Story &middot; <a href=\"([^\"]+)\">"
+}
+series {
+  name: "TalesOfMu"
+  description: "Tales of Mu"
+  author: "Alexandra Erin"
+  startPage: "http://www.talesofmu.com/story/book01/1"
+  titlePattern: "<div class=\"date\"><h2>(.+?)</h2>"
+  contentPattern: "<div class=\"entry\">(.*?)<center>"
+  nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
+}
+series {
+  name: "hpmor"
+  description: "Harry Potter and the Methods of Rationality"
+  author: "Eliezer Yudkowsky"
+  startPage: "http://hpmor.com/chapter/1"
+  titlePattern: "<div id=\"chapter-title\">([^<]+)<"
+  contentPattern: "<div class=\'storycontent[^>]+>(.+?)</div>\n<div id=\'content"
+  nextPattern: "<div class=\"nav-next\"><a href=\"([^\"]+)\""
 }
