@@ -1,7 +1,7 @@
 from urlgrab import Cache
 from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
-from os import mkdir
+from os import mkdir, system
 from os.path import exists, join
 from hashlib import md5
 
@@ -32,6 +32,7 @@ for s in db.series:
 			titlePattern = compile(s.titlePattern, DOTALL | MULTILINE)
 			contentPattern = compile(s.contentPattern, DOTALL | MULTILINE)
 			nextPattern = compile(s.nextPattern, DOTALL | MULTILINE)
+			newitems = False
 			for x in range(20):
 				print "generating", page
 				data = c.get(page, max_age=-1).read()
@@ -42,6 +43,8 @@ for s in db.series:
 				title = title.groups()[0]
 
 				link = nextPattern.search(data)
+				fname = md5(page).hexdigest() + ".html"
+				fpath = join(folder, fname)
 
 				content = contentPattern.search(data)
 				assert content != None, page
@@ -70,6 +73,10 @@ for s in db.series:
 		</body>
 	</html>""")
 			toc.close()
+			if newitems or not exists(folder + ".mobi"):
+				cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\"" %(folder.replace(" ", "\\ "), folder, s.author)
+				print cmd
+				system(cmd)
 
 			if page != None:
 				index +=1
