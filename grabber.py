@@ -83,7 +83,7 @@ for s in db.series:
 		</html>"""%(title, title, content))
 				if link != None:
 					link = link.groups()[0]
-				page = link
+				page = urljoin(page, link)
 				if page == None:
 					break
 			toc.write("""\t\t</div>
