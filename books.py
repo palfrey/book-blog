@@ -22,6 +22,7 @@ wrong = {
 		u"â€˜": u"'",
 		u"â€”": u" - ",
 		u"â€¦": u"-",
+		u"": u"",
 		}
 
 series = dict([(s.name,s) for s in db.series])
@@ -117,7 +118,7 @@ for s in series:
 </html>""")
 		toc.close()
 		if newitems or not exists(folder + ".mobi"):
-			cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\"" %(folder.replace(" ", "\\ "), folder, s.author)
+			cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8" %(folder.replace(" ", "\\ "), folder, s.author)
 			print cmd
 			system(cmd)
 
