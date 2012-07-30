@@ -1,7 +1,7 @@
 Book Blog
 =========
 
-Usage: books.py [options] (&lt;series name list&gt;)*
+Usage: books.py \[options\] (&lt;series name list&gt;)*
 
 Options:
 
