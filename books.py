@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from urlgrab import Cache
+from google.protobuf import text_format
 from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
 from os import mkdir, system
@@ -13,7 +14,7 @@ from optparse import OptionParser
 c = Cache()
 
 db = All()
-db.ParseFromString(open("series.list", "rb").read())
+text_format.Merge(open("series.txt","rb","utf-8").read(),db)
 
 wrong = {
 		u"â€œ": u"\"",
