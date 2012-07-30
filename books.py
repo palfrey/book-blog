@@ -16,6 +16,7 @@ c = Cache()
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)
 
+# Kindle doesn't like various characters, so lets rewrite some of them...
 wrong = {
 		u"â€œ": u"\"",
 		u"â€™": u"'",
