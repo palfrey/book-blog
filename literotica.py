@@ -12,7 +12,7 @@ nextPattern = compile("\"([^\"]+)\">Next</a>")
 
 page = cache.get(url, max_age = -1)
 data = page.read()
-open("dump", "wb").write(data)
+open("dump", "wb").write(data.encode("utf-8"))
 
 title = titlePattern.findall(data)
 print title
