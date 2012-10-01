@@ -50,7 +50,7 @@ for s in series:
 	index = 1
 	while page!=None:
 		folder = "%s #%02d"%(s.description, index)
-		toc = tocStart()
+		toc = tocStart(folder)
 		titlePattern = compile(s.titlePattern, DOTALL | MULTILINE)
 		contentPattern = compile(s.contentPattern, DOTALL | MULTILINE)
 		nextPattern = compile(s.nextPattern, DOTALL | MULTILINE)
@@ -78,7 +78,7 @@ for s in series:
 			content = contentPattern.search(data)
 			assert content != None, page
 			content = content.groups()[0]
-			newitems = generatePage(title, content, folder, toc) or newitems
+			newitems = generatePage(page, title, content, folder, toc) or newitems
 			if link is not None:
 				link = link.groups()[0]
 			newpage = urljoin(page, link)
