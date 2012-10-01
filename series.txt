@@ -21,6 +21,6 @@ series {
   author: "Eliezer Yudkowsky"
   startPage: "http://hpmor.com/chapter/1"
   titlePattern: "<div id=\"chapter-title\">([^<]+)<"
-  contentPattern: "<div class=\'storycontent[^>]+>(.+?)</div>\n<div id=\'content"
+  contentPattern: "<div style=\'\' class=\'storycontent[^>]+>(.+?)</div>\n<div id=\"nav-bottom"
   nextPattern: "<div class=\"nav-next\"><a href=\"([^\"]+)\""
 }
