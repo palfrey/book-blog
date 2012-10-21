@@ -15,13 +15,11 @@ data = page.read()
 open("dump", "wb").write(data.encode("utf-8"))
 
 title = titlePattern.findall(data)
-print title
 title = title[0]
+print title
 content = u""
 while True:
 	contentMatch = contentPattern.findall(data)
-	print page.headers.headers
-	print type(data)
 	content += contentMatch[0]
 	#print content
 	nextMatch = nextPattern.findall(data)
@@ -32,7 +30,6 @@ while True:
 	print nextURL
 	page = cache.get(nextURL, max_age=-1)
 	data = page.read()
-
 
 toc = tocStart(title)
 generatePage(url, title, content, title, toc)
