@@ -1,5 +1,5 @@
 from codecs import open
-from os import mkdir
+from os import mkdir, system
 from os.path import join, exists
 
 try:
@@ -55,3 +55,10 @@ def tocEnd(toc):
 	</body>
 </html>""")
 	toc.close()
+
+def makeMobi(folder, author):
+	if not exists(folder + ".mobi"):
+		cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8" %(folder.replace(" ", "\\ "), folder, author)
+		print cmd
+		system(cmd)
+

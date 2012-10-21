@@ -3,7 +3,6 @@ from urlgrab import Cache
 from google.protobuf import text_format
 from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
-from os import  system
 from os.path import exists
 from codecs import open
 from urlparse import urljoin
@@ -87,10 +86,8 @@ for s in series:
 				break
 			page = newpage
 		tocEnd(toc)
-		if newitems or not exists(folder + ".mobi"):
-			cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8" %(folder.replace(" ", "\\ "), folder, s.author)
-			print cmd
-			system(cmd)
+		if newitems:
+			makeMobi(folder, s.author)
 
 		if page != None:
 			index +=1
