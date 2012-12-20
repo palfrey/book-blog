@@ -1,7 +1,13 @@
 Book Blog
 =========
 
-Usage: books.py \[options\] (&lt;series name list&gt;)*
+Setup
+-----
+Run `make` to create the protocol buffers files
+
+Usage
+-----
+books.py \[options\] (&lt;series name list&gt;)*
 
 Options:
 
