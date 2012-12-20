@@ -7,7 +7,7 @@ from os.path import exists
 from codecs import open
 from urlparse import urljoin
 from optparse import OptionParser
-from common import generatePage, tocStart, tocEnd
+from common import generatePage, tocStart, tocEnd, makeMobi
 
 c = Cache()
 
@@ -86,8 +86,7 @@ for s in series:
 				break
 			page = newpage
 		tocEnd(toc)
-		if newitems:
-			makeMobi(folder, s.author)
+		makeMobi(folder, s.author, newitems)
 
 		if page != None:
 			index +=1
