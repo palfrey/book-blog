@@ -7,7 +7,7 @@ Run `make` to create the protocol buffers files
 
 Usage
 -----
-books.py \[options\] (&lt;series name list&gt;)*
+python books.py \[options\] (&lt;series name list&gt;)*
 
 Options:
 
@@ -17,5 +17,11 @@ Options:
 The list of series are in series.txt, and primarily consist of a series of
 Regex's defining the title, content and next page link written in [Protocol
 Buffers text format][pb]
+
+Generator
+---------
+Run "python fanfiction.py <a story URL from FanFiction.net>" to generate a new 
+series entry for an arbitrary FanFiction.net story, which can them be copied
+into series.txt
 
 [pb]: https://developers.google.com/protocol-buffers/docs/overview
