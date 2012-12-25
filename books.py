@@ -59,7 +59,11 @@ for s in series:
 			age = -1
 			while True:
 				p = c.get(page, max_age=age)
-				data = p.read().decode("utf-8")
+				data = p.read()
+				try:
+					data = data.decode("utf-8")
+				except UnicodeEncodeError:
+					pass # hope all still ok...
 
 				for k in wrong:
 					data = data.replace(k, wrong[k])
