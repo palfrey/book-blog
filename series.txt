@@ -24,3 +24,31 @@ series {
   contentPattern: "<div style=\'\' class=\'storycontent[^>]+>(.+?)</div>\n<div id=\"nav-bottom"
   nextPattern: "<div class=\"nav-next\"><a href=\"([^\"]+)\""
 }
+series {
+	name: "natural20"
+	description: "Harry Potter and the Natural 20"
+	author: "Sir Poley"
+	startPage: "http://www.fanfiction.net/s/8096183/1/Harry-Potter-and-the-Natural-20"
+	titlePattern: "Harry Potter and the Natural 20 (.+?), a Harry"
+	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
+	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+}
+series {
+	name: "darkkingdom"
+	description: "Prince of the Dark Kingdom"
+	author: "Mizuni-Sama"
+	titlePattern: "Prince of the Dark Kingdom (.+?), a harry"
+	startPage: "http://www.fanfiction.net/s/3766574/1/Prince_of_the_Dark_Kingdom"
+	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
+	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+}
+series {
+	name: "timebraid"
+	description: "Time Braid"
+	author: "ShaperV"
+	titlePattern: "Time Braid (.+?), a "
+	startPage: "http://www.fanfiction.net/s/5193644/"
+	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
+	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+}
+
