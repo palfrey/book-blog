@@ -48,6 +48,7 @@ while True:
 		print "getting", currentChapter
 		page = cache.get(chapterLinks[currentChapter], max_age = -1)
 		url = chapterLinks[currentChapter]
+		print url
 		data = page.read()
 	chapterTitle = titlePattern.findall(data)
 	chapterTitle = chapterTitle[0]
