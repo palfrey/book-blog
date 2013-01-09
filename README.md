@@ -20,7 +20,7 @@ Buffers text format][pb]
 
 Generator
 ---------
-Run "python fanfiction.py <a story URL from FanFiction.net>" to generate a new 
+Run "python fanfiction.py \<a story URL from FanFiction.net>" to generate a new 
 series entry for an arbitrary FanFiction.net story, which can them be copied
 into series.txt
 
