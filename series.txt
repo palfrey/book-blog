@@ -51,4 +51,12 @@ series {
 	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
 	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
 }
-
+series {
+	name: "CultureShock"
+	description: "Culture Shock"
+	author: "Ruskbyte"
+	titlePattern: "Culture Shock (.+?), a"
+	startPage: "http://www.fanfiction.net/s/3983128/1/Culture-Shock"
+	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
+	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+}

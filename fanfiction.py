@@ -8,7 +8,7 @@ url = argv[1]
 data = cache.get(url).read()
 open("dump", "wb", "utf-8").write(data)
 
-title = re.search("<title>(.+?) Chapter \d+: .+?(, a .+? fanfic)", data)
+title = re.search("<title>(.+?) Chapter \d+, a", data)
 title = title.groups()
 author = re.search("Author: <a href='/u/\d+/[^']+'>([^<]+)</a>", data)
 author = author.groups()[0]
@@ -24,6 +24,6 @@ print """series {
 	titlePattern: "%s (.+?), a"
 	startPage: "http://www.fanfiction.net/s/%s/1/%s"
 	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
-	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\\\"self.location='([^']+)"
 }"""%(title[0].replace(" ",""), title[0], author, title[0], id, name)
 
