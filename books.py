@@ -43,18 +43,32 @@ for k in args:
 
 series = [series[k] for k in args]
 
+def infiniteRange():
+	i = 1
+	while True:
+		yield i
+		i +=1
+
 for s in series:
 	print s
 	page = s.startPage
 	index = 1
 	while page!=None:
-		folder = "%s #%02d"%(s.description, index)
+		if opts.count == -1:
+			folder = s.description
+		else:
+			folder = "%s #%02d"%(s.description, index)
 		toc = tocStart(folder)
 		titlePattern = compile(s.titlePattern, DOTALL | MULTILINE)
 		contentPattern = compile(s.contentPattern, DOTALL | MULTILINE)
 		nextPattern = compile(s.nextPattern, DOTALL | MULTILINE)
 		newitems = False
-		for x in range(opts.count):
+		if opts.count == -1:
+			items = infiniteRange()
+		else:
+			items = range(opts.count)
+
+		for x in items:
 			print "generating", page
 			age = -1
 			while True:
