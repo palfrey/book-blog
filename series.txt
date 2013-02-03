@@ -60,3 +60,12 @@ series {
 	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
 	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
 }
+series {
+	name: "HatesMyFuton"
+	description: "She Hates My Futon"
+	author: "Craig Mitchell"
+	titlePattern: "<h1 class=\"title\">(.+?)</h1>"
+	startPage: "http://www.famousboot.com/futon/ch1/"
+	contentPattern: "<div class=\"post-content clearfix\">(.+?)<< <A HREF=\"/futon/ch\d+\">Previous Chapter</A> >>"
+	nextPattern:"<A HREF=\"(/futon/ch\d+)\">Next Chapter</A>"
+}
