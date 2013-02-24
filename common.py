@@ -1,6 +1,6 @@
 from codecs import open
 from os import mkdir, system
-from os.path import join, exists
+from os.path import join, exists, getsize
 
 try:
 	import hashlib
@@ -15,10 +15,10 @@ def hexdigest_md5(data):
 		return md5.new(data).hexdigest()
 
 def generatePage(page, title, content, folder, toc):
-	fname = hexdigest_md5(page) + ".html"
+	fname = unicode(hexdigest_md5(page) + ".html")
 	fpath = join(folder, fname)
-	toc.write("\t\t\t<a title=\"%s\" href=\"%s\" />\n" % (title, fname))
-	if not exists(fpath):
+	toc.write(u"\t\t\t<a title=\"%s\" href=\"%s\" />\n" % (title, fname))
+	if not exists(fpath) or getsize(fpath) < 500:
 		open(fpath, "wb", "utf-8").write(u"""<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 		<head>
 			<style type="text/css" title="override_css">
@@ -40,7 +40,7 @@ def tocStart(folder):
 	if not exists(folder):
 		mkdir(folder)
 	toc = open(join(folder, "toc.html"), "wb", "utf-8")
-	toc.write("""<html xmlns="http://www.w3.org/1999/xhtml">
+	toc.write(u"""<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>%s</title>
 	</head>
@@ -48,7 +48,6 @@ def tocStart(folder):
 		<div style="display:none">
 """ % folder)
 	return toc
-
 
 def tocEnd(toc):
 	toc.write("""\t\t</div>
