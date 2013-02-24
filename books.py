@@ -91,7 +91,7 @@ for s in series:
 					break
 			title = titlePattern.search(data)
 			assert title != None, page
-			title = title.groups()[0]
+			title = title.groups()[0].replace("\n", "")
 			content = contentPattern.search(data)
 			assert content != None, page
 			content = content.groups()[0]

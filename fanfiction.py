@@ -21,9 +21,9 @@ print """series {
 	name: "%s"
 	description: "%s"
 	author: "%s"
-	titlePattern: "%s (.+?), a"
-	startPage: "http://www.fanfiction.net/s/%s/1/%s"
-	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
-	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\\\"self.location='([^']+)"
-}"""%(title[0].replace(" ",""), title[0], author, title[0], id, name)
+	startPage: "http://m.fanfiction.net/s/%s/1"
+	titlePattern: "<img src='http://[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "class='storycontent' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}"""%(title[0].replace(" ",""), title[0], author, id)
 

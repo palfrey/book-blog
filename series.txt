@@ -34,13 +34,13 @@ series {
 	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
 }
 series {
-	name: "darkkingdom"
+	name: "PrinceoftheDarkKingdom"
 	description: "Prince of the Dark Kingdom"
-	author: "Mizuni-Sama"
-	titlePattern: "Prince of the Dark Kingdom (.+?), a harry"
-	startPage: "http://www.fanfiction.net/s/3766574/1/Prince_of_the_Dark_Kingdom"
-	contentPattern: "<div class='storytext xcontrast_txt' id='storytext'>(.+?)</div>(.*?)</div><div style='height:5px'>"
-	nextPattern: "Value='&nbsp;Next &gt;&nbsp;' onClick=\"self.location='([^']+)"
+	author: "Mizuni-sama"
+	startPage: "http://m.fanfiction.net/s/3766574/1"
+	titlePattern: "<img src='http://[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "class='storycontent' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
 }
 series {
 	name: "timebraid"
