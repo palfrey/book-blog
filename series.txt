@@ -12,7 +12,7 @@ series {
   author: "Alexandra Erin"
   startPage: "http://www.talesofmu.com/story/book01/1"
   titlePattern: "<div class=\"date\"><h2>(.+?)</h2>"
-  contentPattern: "<div class=\"entry\">(.*?)<center>"
+  contentPattern: "<div class=\"entry\">(.*?)<center><a href=\"http://www.talesofmu.com/story/sponsor-a-chapter\">"
   nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
 }
 series {
