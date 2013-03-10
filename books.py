@@ -95,6 +95,8 @@ for s in series:
 			content = contentPattern.search(data)
 			assert content != None, page
 			content = content.groups()[0]
+			content = content.strip()
+			assert len(content) > 30, (folder, page, content)
 			newitems = generatePage(page, title, content, folder, toc) or newitems
 			if link is not None:
 				link = link.groups()[0]
