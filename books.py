@@ -13,6 +13,7 @@ c = Cache()
 
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)
+stripTags = compile("<[^>]+>");
 
 # Kindle doesn't like various characters, so lets rewrite some of them...
 wrong = {
@@ -92,6 +93,7 @@ for s in series:
 			title = titlePattern.search(data)
 			assert title != None, page
 			title = title.groups()[0].replace("\n", "")
+			title = stripTags.sub("", title)
 			content = contentPattern.search(data)
 			assert content != None, page
 			content = content.groups()[0]
