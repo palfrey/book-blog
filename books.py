@@ -14,6 +14,7 @@ c = Cache()
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)
 stripTags = compile("<[^>]+>");
+stripAnchorTags = compile("(?:<a[^>]+>)|(?:</a>)");
 
 # Kindle doesn't like various characters, so lets rewrite some of them...
 wrong = {
@@ -98,6 +99,7 @@ for s in series:
 			assert content != None, page
 			content = content.groups()[0]
 			content = content.strip()
+			content = stripAnchorTags.sub("", content)
 			assert len(content) > 30, (folder, page, content)
 			newitems = generatePage(page, title, content, folder, toc) or newitems
 			if link is not None:
