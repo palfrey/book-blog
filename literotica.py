@@ -10,7 +10,7 @@ titlePattern = compile("<h1>([^<]+)</h1>")
 contentPattern = compile("<div class=\"b-story-body-x x-r15\">(.+?)</div><div class=\"b-story-stats-block\">" , DOTALL|MULTILINE)
 nextPattern = compile("\"([^\"]+)\">Next</a>")
 
-chapterPattern = compile("(.*?) Ch. (\d+)")
+chapterPattern = compile("(.*?) (?:Ch.|Pt.) (\d+)")
 memberPattern = compile("<a href=\"(http://www.literotica.com/stories/memberpage.php\?uid=\d+&amp;page=submissions)\">([^<]+)</a>")
 chapterLinkPattern = compile("href=\"(http://www.literotica.com/s/[^\"]+)\">([^<]+)</a>")
 
@@ -44,7 +44,7 @@ if chapter != None:
 	print "links", chapterLinks
 		
 while True:
-	if url != chapterLinks[currentChapter]:
+	if chapter !=None and url != chapterLinks[currentChapter]:
 		print "getting", currentChapter
 		page = cache.get(chapterLinks[currentChapter], max_age = -1)
 		url = chapterLinks[currentChapter]
