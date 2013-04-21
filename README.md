@@ -24,4 +24,8 @@ Run "python fanfiction.py \<a story URL from FanFiction.net>" to generate a new
 series entry for an arbitrary FanFiction.net story, which can them be copied
 into series.txt
 
+Run "python ao3.py \<a story URL from archiveofourown.org>" to generate a new 
+series entry for an arbitrary Archive of Our Own story, which can them be copied
+into series.txt
+
 [pb]: https://developers.google.com/protocol-buffers/docs/overview

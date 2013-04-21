@@ -12,8 +12,6 @@ title = re.search("<title>(.+?) Chapter \d+, a", data)
 title = title.groups()
 author = re.search("Author: <a href='/u/\d+/[^']+'>([^<]+)</a>", data)
 author = author.groups()[0]
-name = re.search("self.location = '/s/\d+/'\+ this\.options\[this.selectedIndex\]\.value \+ '/(.+?)';", data)
-name = name.groups()[0]
 id = re.search("/s/(\d+)", url)
 id = id.groups()[0]
 

@@ -69,3 +69,12 @@ series {
 	contentPattern: "<div class=\"post-content clearfix\">(.+?)<< <A HREF=\"/futon/ch\d+\">Previous Chapter</A> >>"
 	nextPattern:"<A HREF=\"(/futon/ch\d+)\">Next Chapter</A>"
 }
+series {
+	name: "CaptainFraudulent"
+	description: "Captain Fraudulent"
+	author: "Ellid (Ellidfics)"
+	titlePattern: "<h3 class=\"title\">\s+(?:<a href=\"/works/\d+/chapters/\d+\">)?(Chapter \d+(?:</a>)?: .+?)\s+</h3>"
+	startPage: "http://archiveofourown.org/works/572602/"
+	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/main-->"
+	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
+}
