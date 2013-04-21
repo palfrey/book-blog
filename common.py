@@ -17,7 +17,7 @@ def hexdigest_md5(data):
 def generatePage(page, title, content, folder, toc):
 	fname = unicode(hexdigest_md5(page) + ".html")
 	fpath = join(folder, fname)
-	toc.write(u"\t\t\t<a title=\"%s\" href=\"%s\" />\n" % (title, fname))
+	toc.write(u"\t\t\t<a class=\"toc_title\" href=\"%s\">%s</a>\n" % (fname, title))
 	if not exists(fpath) or getsize(fpath) < 500:
 		open(fpath, "wb", "utf-8").write(u"""<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 		<head>
@@ -57,7 +57,7 @@ def tocEnd(toc):
 
 def makeMobi(folder, author, newitems = False):
 	if newitems or not exists(folder + ".mobi"):
-		cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8" %(folder.replace(" ", "\\ "), folder, author)
+		cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1" %(folder.replace(" ", "\\ "), folder, author)
 		print cmd
 		system(cmd)
 
