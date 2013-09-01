@@ -8,9 +8,9 @@ url = argv[1]
 data = cache.get(url).read()
 open("dump", "wb", "utf-8").write(data)
 
-title = re.search("<title>(.+?) Chapter \d+, a", data)
+title = re.search("<title>(.+?) Chapter \d+", data)
 title = title.groups()
-author = re.search("Author: <a href='/u/\d+/[^']+'>([^<]+)</a>", data)
+author = re.search("Author:</span> <a[^>]+?href='/u/\d+/[^']+'>([^<]+)</a>", data)
 author = author.groups()[0]
 id = re.search("/s/(\d+)", url)
 id = id.groups()[0]

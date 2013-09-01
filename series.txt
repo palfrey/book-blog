@@ -78,3 +78,12 @@ series {
 	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/main-->"
 	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
 }
+series {
+	name: "ShinjiandWarhammer40k"
+	description: "Shinji and Warhammer40k"
+	author: "Charles Bhepin"
+	startPage: "http://m.fanfiction.net/s/3886999/1"
+	titlePattern: "<img src='http://[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "class='storycontent' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
