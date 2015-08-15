@@ -25,6 +25,14 @@ wrong = {
 		u"â€”": u" - ",
 		u"â€¦": u"-",
 		u"": u"",
+		u'“': u"\"",
+		u'”':u"\"",
+		u'–':u"-",
+		u'’':u"'",
+		u' ':u" ",
+		u'ñ':u"&ntilde;",
+		u'…':u'&hellip;',
+		u'‘':u'\'',
 		}
 
 series = dict([(s.name,s) for s in db.series])
@@ -108,7 +116,7 @@ for s in series:
 			if page == None or newpage == page:
 				page = None
 				break
-			page = newpage
+			page = newpage + "?view_adult=true"
 		tocEnd(toc)
 		makeMobi(folder, s.author, newitems)
 

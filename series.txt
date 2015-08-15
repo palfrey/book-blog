@@ -21,7 +21,7 @@ series {
   author: "Eliezer Yudkowsky"
   startPage: "http://hpmor.com/chapter/1"
   titlePattern: "<div id=\"chapter-title\">([^<]+)<"
-  contentPattern: "<div style=\'\' class=\'storycontent[^>]+>(.+?)</div>\n<div id=\"nav-bottom"
+  contentPattern: "<div[^>]+id=\'storycontent[^>]+>(.+?)</div>\n<div id=\"nav-bottom"
   nextPattern: "<div class=\"nav-next\"><a href=\"([^\"]+)\""
 }
 series {
@@ -38,8 +38,8 @@ series {
 	description: "Prince of the Dark Kingdom"
 	author: "Mizuni-sama"
 	startPage: "http://m.fanfiction.net/s/3766574/1"
-	titlePattern: "<img src='http://[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
-	contentPattern: "class='storycontent' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "class='storycontent nocopy' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
 }
 series {
@@ -86,4 +86,94 @@ series {
 	titlePattern: "<img src='http://[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "class='storycontent' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TheBrainThief"
+	description: "The Brain Thief"
+	author: "hollimichele"
+	titlePattern: "<h2 class=\"title heading\">\s+(.+?)\s+</h2>"
+	startPage: "http://archiveofourown.org/works/241889/"
+	contentPattern: "<div id=\"chapters\" role=\"article\">(.*?)<!--/chapter-->"
+	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
+}
+series {
+	name: "Worm"
+	description: "Worm"
+	author: "John McCrae"
+	startPage: "http://parahumans.wordpress.com/category/stories-arcs-1-10/arc-1-gestation/1-01/"
+	titlePattern: "<h1 class=\"entry-title\">(.*?)</h1>"
+	contentPattern: "<a[^>]+?href=\"http://parahumans.wordpress.com/[^\"]+\">Next Chapter</a>(.+?)<a[^>]+?href=\"http://parahumans.wordpress.com/[^\"]+\">Next Chapter</a>"
+	nextPattern: "<a[^>]+?href=\"(http://parahumans.wordpress.com/[^\"]+)\">Next Chapter</a>"
+}
+series {
+	name: "TheLastChristmas"
+	description: "The Last Christmas"
+	author: "alexanderwales"
+	startPage: "http://m.fanfiction.net/s/9915682/1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "BranchesontheTreeofTime"
+	description: "Branches on the Tree of Time"
+	author: "alexanderwales"
+	startPage: "http://m.fanfiction.net/s/9658524/1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "Browncoat,GreenEyes"
+	description: "Browncoat, Green Eyes"
+	author: "nonjon"
+	startPage: "http://m.fanfiction.net/s/2857962/1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TheMetropolitanMan"
+	description: "The Metropolitan Man"
+	author: "alexanderwales"
+	startPage: "http://m.fanfiction.net/s/10360716/1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "SomethingintheNight"
+	description: "Something in the Night"
+	author: "TheBestAtNotVeryNice"
+	titlePattern: "<h3 class=\"title\">\s+(?:<a href=\"/works/\d+/chapters/\d+\">)?(Chapter \d+(?:</a>)?: .+?)\s+</h3>"
+	startPage: "http://archiveofourown.org/works/1881774/"
+	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/main-->"
+	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
+}
+series {
+	name: "SteveRogersat100:CelebratingCaptainAmericaonFilm"
+	description: "Steve Rogers at 100: Celebrating Captain America on Film"
+	author: "eleveninches"
+	titlePattern: "<h2 class=\"title heading\">\s+(.*?)\s+</h2>"
+	startPage: "http://archiveofourown.org/works/1599293/"
+	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/afterword-->"
+	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
+}
+series {
+	name: "LightingUptheDark"
+	description: "Lighting Up the Dark"
+	author: "Velorien"
+	startPage: "http://m.fanfiction.net/s/9311012/1"
+	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TheActofCreationWillBeYourSalvation"
+	description: "The Act of Creation Will Be Your Salvation"
+	author: "scifigrl47"
+	titlePattern: "<h2 class=\"title heading\">\s+(.*?)\s+</h2>"
+	startPage: "http://archiveofourown.org/works/401961/chapters/662516?view_adult=true"
+	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/main-->"
+	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
 }

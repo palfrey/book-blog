@@ -11,8 +11,8 @@ contentPattern = compile("<div class=\"b-story-body-x x-r15\">(.+?)</div><div cl
 nextPattern = compile("\"([^\"]+)\">Next</a>")
 
 chapterPattern = compile("(.*?) (?:Ch.|Pt.) (\d+)")
-memberPattern = compile("<a href=\"(http://www.literotica.com/stories/memberpage.php\?uid=\d+&amp;page=submissions)\">([^<]+)</a>")
-chapterLinkPattern = compile("href=\"(http://www.literotica.com/s/[^\"]+)\">([^<]+)</a>")
+memberPattern = compile("<a href=\"(https://www.literotica.com/stories/memberpage.php\?uid=\d+&amp;page=submissions)\">([^<]+)</a>")
+chapterLinkPattern = compile("href=\"(https://www.literotica.com/s/[^\"]+)\">([^<]+)</a>")
 
 page = cache.get(url, max_age = -1)
 data = page.read()
@@ -42,6 +42,7 @@ if chapter != None:
 
 	open("dump", "wb").write(memberData.encode("utf-8"))
 	print "links", chapterLinks
+	chapterLinks[1] = "https://www.literotica.com/s/the-office-team-building-day"
 		
 while True:
 	if chapter !=None and url != chapterLinks[currentChapter]:
