@@ -1,6 +1,7 @@
 from codecs import open
 from os import mkdir, system
 from os.path import join, exists, getsize
+import platform
 
 try:
 	import hashlib
@@ -57,7 +58,11 @@ def tocEnd(toc):
 
 def makeMobi(folder, author, newitems = False):
 	if newitems or not exists(folder + ".mobi"):
-		cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1 --max-toc-links=0" %(folder.replace(" ", "\\ ").replace("'", "\\'"), folder, author)
-		cmd = "rm -f book.zip && zip -j book.zip %s/* && /Applications/calibre.app/Contents/MacOS/ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1 --max-toc-links=0" %(folder.replace(" ", "\\ ").replace("'", "\\'"), folder, author)
+		if platform.system() == "Linux":
+			cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1 --max-toc-links=0" %(folder.replace(" ", "\\ ").replace("'", "\\'"), folder, author)
+		elif platform.system() == "Darwin":
+			cmd = "rm -f book.zip && zip -j book.zip %s/* && /Applications/calibre.app/Contents/MacOS/ebook-convert book.zip \"%s.mobi\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1 --max-toc-links=0" %(folder.replace(" ", "\\ ").replace("'", "\\'"), folder, author)
+		else:
+			raise Exception, "Unknown system: %s" % platform.system()
 		print cmd
 		system(cmd)
