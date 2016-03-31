@@ -7,3 +7,5 @@ dump
 *#*
 .idea/
 BOFH-*
+*.pyc
+ENV/

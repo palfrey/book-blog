@@ -20,7 +20,7 @@ print """series {
 	description: "%s"
 	author: "%s"
 	startPage: "http://m.fanfiction.net/s/%s/1"
-	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
 }"""%(title[0].replace(" ",""), title[0], author, id)
