@@ -42,8 +42,7 @@ if chapter != None:
 
 	open("dump", "wb").write(memberData.encode("utf-8"))
 	print "links", chapterLinks
-	chapterLinks[1] = "https://www.literotica.com/s/the-office-team-building-day"
-		
+
 while True:
 	if chapter !=None and url != chapterLinks[currentChapter]:
 		print "getting", currentChapter
@@ -75,4 +74,3 @@ while True:
 		break
 tocEnd(toc)
 makeMobi(title, author)
-
