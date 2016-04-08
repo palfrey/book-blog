@@ -177,3 +177,12 @@ series {
 	contentPattern: "<div[^>]+?class=\"summary module\"[^>]*?>(.*?)<!--/main-->"
 	nextPattern: "<a href=\"(/works/\d+/chapters/\d+)\">Next Chapter &#8594;</a>"
 }
+series {
+	name: "SignificantDigits"
+	description: "Significant Digits"
+	author: "adeebus"
+	startPage: "http://m.fanfiction.net/s/11174940/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
