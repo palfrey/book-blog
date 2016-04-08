@@ -100,10 +100,10 @@ series {
 	name: "Worm"
 	description: "Worm"
 	author: "John McCrae"
-	startPage: "http://parahumans.wordpress.com/category/stories-arcs-1-10/arc-1-gestation/1-01/"
+	startPage: "https://parahumans.wordpress.com/category/stories-arcs-1-10/arc-1-gestation/1-01/"
 	titlePattern: "<h1 class=\"entry-title\">(.*?)</h1>"
-	contentPattern: "<a[^>]+?href=\"http://parahumans.wordpress.com/[^\"]+\">Next Chapter</a>(.+?)<a[^>]+?href=\"http://parahumans.wordpress.com/[^\"]+\">Next Chapter</a>"
-	nextPattern: "<a[^>]+?href=\"(http://parahumans.wordpress.com/[^\"]+)\">Next Chapter</a>"
+	contentPattern: "<a[^>]+?href=\"https?://[a-z]+.wordpress.com/[^\"]+\">(?:End| ?Next Chapter)</a>(.+?)<a[^>]+?href=\"https?://[a-z]+.wordpress.com/[^\"]+\">(?:End| ?Next Chapter)</a>"
+	nextPattern: "<a[^>]+?href=\"(https?://[a-z]+.wordpress.com/[^\"]+)\"> ?Next Chapter</a>"
 }
 series {
 	name: "TheLastChristmas"

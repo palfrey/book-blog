@@ -11,7 +11,7 @@ except ImportError: # python < 2.5
 
 def hexdigest_md5(data):
 	if hashlib:
-		return hashlib.md5(data).hexdigest()
+		return hashlib.md5(data.encode("utf-8")).hexdigest()
 	else:
 		return md5.new(data).hexdigest()
 
