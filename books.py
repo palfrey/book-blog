@@ -61,6 +61,8 @@ def infiniteRange():
 
 for s in series:
 	print s
+	if s.description == "":
+		s.description = s.name
 	page = s.startPage
 	index = 1
 	while page!=None:

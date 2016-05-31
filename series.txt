@@ -186,3 +186,11 @@ series {
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
 }
+series {
+    name: "Unsong"
+    author: "Scott Alexander"
+    startPage: "http://unsongbook.com/prologue-2/"
+    titlePattern: "<meta property=\"og:title\" content=\"([^\"]+)\" />"
+    contentPattern: "<div class=\"pjgm-postcontent\">(.+?)<div class=\"sharedaddy sd-sharing-enabled\">"
+    nextPattern: "<a href=\"(http://unsongbook.com/[^\"]+/)\" rel=\"next\""
+}
