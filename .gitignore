@@ -1,11 +1,8 @@
-*.mobi
 *.zip
 cache
 *_pb2.py
 dump.html
 dump
-*#*
 .idea/
-BOFH-*
 *.pyc
 ENV/

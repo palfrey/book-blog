@@ -3,7 +3,7 @@ from urlgrab import Cache
 from google.protobuf import text_format
 from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
-from os.path import exists
+from os.path import exists, join
 from codecs import open
 from urlparse import urljoin
 from optparse import OptionParser
@@ -70,6 +70,7 @@ for s in series:
 			folder = s.description
 		else:
 			folder = "%s #%02d"%(s.description, index)
+		folder = join("books", folder)
 		toc = tocStart(folder)
 		titlePattern = compile(s.titlePattern, DOTALL | MULTILINE)
 		contentPattern = compile(s.contentPattern, DOTALL | MULTILINE)
