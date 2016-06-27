@@ -10,6 +10,7 @@ from optparse import OptionParser
 from common import generatePage, tocStart, tocEnd, makeMobi
 
 c = Cache()
+c.user_agent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3"
 
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)
