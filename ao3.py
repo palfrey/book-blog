@@ -15,8 +15,8 @@ navigate = "http://archiveofourown.org/works/%s/navigate"%id
 print navigate
 
 data = cache.get(navigate).read()
-info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a href=\"[^\"]+\" class=\"login author\" rel=\"author\">([^<]+)</a></h2>", data)
 data = data.decode("utf-8")
+info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a href=\"[^\"]+\" rel=\"author\">([^<]+)</a></h2>", data)
 (title, author) = info.groups()
 
 titlePattern = re.compile("<h2 class=\"title heading\">\s+(.*?)\s+</h2>")
