@@ -15,8 +15,8 @@ navigate = "http://archiveofourown.org/works/%s/navigate"%id
 print navigate
 
 data = cache.get(navigate).read()
-
 info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a href=\"[^\"]+\" class=\"login author\" rel=\"author\">([^<]+)</a></h2>", data)
+data = data.decode("utf-8")
 (title, author) = info.groups()
 
 titlePattern = re.compile("<h2 class=\"title heading\">\s+(.*?)\s+</h2>")
@@ -36,6 +36,7 @@ toc = tocStart(title)
 for volumeUrl, volumeTitle in volumes.values():
 	print volumeUrl, volumeTitle
 	chapterPage = cache.get(urljoin(navigate, volumeUrl) + "?view_adult=true", max_age = -1).read()
+	chapterPage = chapterPage.decode("utf-8")
 	items = [summary, notes, mainContent]
 	items = [x.search(chapterPage) for x in items]
 	items = [x.groups()[0] for x in items if x != None]
