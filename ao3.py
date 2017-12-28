@@ -16,7 +16,7 @@ print navigate
 
 data = cache.get(navigate).read()
 data = data.decode("utf-8")
-info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a href=\"[^\"]+\" rel=\"author\">([^<]+)</a></h2>", data)
+info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a.+href=\"[^\"]+\"[^>]*>([^<]+)</a></h2>", data)
 (title, author) = info.groups()
 
 titlePattern = re.compile("<h2 class=\"title heading\">\s+(.*?)\s+</h2>")
@@ -31,7 +31,8 @@ print volumes
 volumes = dict([(int(x[1]), (x[0],x[2])) for x in volumes])
 print volumes
 
-toc = tocStart(title)
+folder = join("books", title)
+toc = tocStart(folder)
 
 for volumeUrl, volumeTitle in volumes.values():
 	print volumeUrl, volumeTitle
@@ -41,6 +42,6 @@ for volumeUrl, volumeTitle in volumes.values():
 	items = [x.search(chapterPage) for x in items]
 	items = [x.groups()[0] for x in items if x != None]
 	content = "\n".join(items)
-	generatePage(volumeUrl, volumeTitle, content, title, toc)
+	generatePage(volumeUrl, volumeTitle, content, folder, toc)
 tocEnd(toc)
-makeMobi(title, author)
+makeMobi(folder, author)
