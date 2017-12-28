@@ -47,7 +47,7 @@ def tocStart(folder):
 	</head>
 	<body class="vcenter">
 		<div style="display:none">
-""" % folder)
+""" % folder.split("/")[-1])
 	return toc
 
 def tocEnd(toc):
