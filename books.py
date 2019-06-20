@@ -5,7 +5,7 @@ from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
 from os.path import exists, join
 from codecs import open
-from urlparse import urljoin
+from urllib.parse import urljoin
 from optparse import OptionParser
 from common import generatePage, tocStart, tocEnd, makeMobi
 
@@ -19,21 +19,21 @@ stripAnchorTags = compile("(?:<a[^>]+>)|(?:</a>)");
 
 # Kindle doesn't like various characters, so lets rewrite some of them...
 wrong = {
-		u"â€œ": u"\"",
-		u"â€™": u"'",
-		u"â€": u"\"",
-		u"â€˜": u"'",
-		u"â€”": u" - ",
-		u"â€¦": u"-",
-		u"": u"",
-		u'“': u"\"",
-		u'”':u"\"",
-		u'–':u"-",
-		u'’':u"'",
-		u' ':u" ",
-		u'ñ':u"&ntilde;",
-		u'…':u'&hellip;',
-		u'‘':u'\'',
+		"â€œ": "\"",
+		"â€™": "'",
+		"â€": "\"",
+		"â€˜": "'",
+		"â€”": " - ",
+		"â€¦": "-",
+		"": "",
+		'“': "\"",
+		'”':"\"",
+		'–':"-",
+		'’':"'",
+		' ':" ",
+		'ñ':"&ntilde;",
+		'…':'&hellip;',
+		'‘':'\'',
 		}
 
 series = dict([(s.name,s) for s in db.series])
@@ -43,13 +43,13 @@ parser.add_option("-c", "--count", dest="count", default=20, help="Number of ite
 
 opts, args = parser.parse_args()
 
-seriesDisplay = "\t" + "\n\t".join(["%s (%s)"%(s.name, s.description) for s in series.values()])
+seriesDisplay = "\t" + "\n\t".join(["%s (%s)"%(s.name, s.description) for s in list(series.values())])
 
 if len(args) == 0:
 	parser.error("Need some series. Options are: \n" + seriesDisplay)
 
 for k in args:
-	if k not in series.keys():
+	if k not in list(series.keys()):
 		parser.error("Can't find series '%s'. Options are: \n"%k + seriesDisplay)
 
 series = [series[k] for k in args]
@@ -61,7 +61,7 @@ def infiniteRange():
 		i +=1
 
 for s in series:
-	print s
+	print(s)
 	if s.description == "":
 		s.description = s.name
 	page = s.startPage
@@ -80,10 +80,10 @@ for s in series:
 		if opts.count == -1:
 			items = infiniteRange()
 		else:
-			items = range(opts.count)
+			items = list(range(opts.count))
 
 		for x in items:
-			print "generating", page
+			print("generating", page)
 			age = -1
 			while True:
 				p = c.get(page, max_age=age)

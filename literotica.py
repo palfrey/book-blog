@@ -26,9 +26,10 @@ if chapter != None:
 	title = chapter.groups()[0]
 	currentChapter = 1
 
-print title
+print(title)
+folder = join("books", title)
 
-toc = tocStart(title)
+toc = tocStart(folder)
 memberPage = memberPattern.search(data)
 memberData = cache.get(memberPage.groups()[0].replace("&amp;", "&"), max_age=3600).read()
 author = memberPage.groups()[1]
@@ -41,18 +42,18 @@ if chapter != None:
 			chapterLinks[int(ch.groups()[1])] = l[0]
 
 	open("dump", "wb").write(memberData.encode("utf-8"))
-	print "links", chapterLinks
+	print("links", chapterLinks)
 
 while True:
 	if chapter !=None and url != chapterLinks[currentChapter]:
-		print "getting", currentChapter
+		print("getting", currentChapter)
 		page = cache.get(chapterLinks[currentChapter], max_age = -1)
 		url = chapterLinks[currentChapter]
-		print url
+		print(url)
 		data = page.read()
 	chapterTitle = titlePattern.findall(data)
 	chapterTitle = chapterTitle[0]
-	content = u""
+	content = ""
 	while True:
 		contentMatch = contentPattern.findall(data)
 		content += contentMatch[0]
@@ -62,15 +63,15 @@ while True:
 			break
 
 		nextURL = nextMatch[0]
-		print nextURL
+		print(nextURL)
 		page = cache.get(nextURL, max_age=-1)
 		data = page.read()
 
-	generatePage(url, chapterTitle, content, title, toc)
+	generatePage(url, chapterTitle, content, folder, toc)
 	if chapter == None:
 		break
 	currentChapter +=1
 	if currentChapter not in chapterLinks:
 		break
 tocEnd(toc)
-makeMobi(title, author)
+makeMobi(folder, author)
