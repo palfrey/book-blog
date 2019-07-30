@@ -83,15 +83,11 @@ for s in series:
 			items = list(range(opts.count))
 
 		for x in items:
-			print("generating", page)
+			print(("generating", page))
 			age = -1
 			while True:
 				p = c.get(page, max_age=age)
 				data = p.read()
-				try:
-					data = data.decode("utf-8")
-				except UnicodeEncodeError:
-					pass # hope all still ok...
 
 				for k in wrong:
 					data = data.replace(k, wrong[k])
