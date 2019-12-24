@@ -38,8 +38,8 @@ series {
 	description: "Prince of the Dark Kingdom"
 	author: "Mizuni-sama"
 	startPage: "http://m.fanfiction.net/s/3766574/1"
-	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
-	contentPattern: "class='storycontent nocopy' id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
 }
 series {
@@ -193,4 +193,121 @@ series {
     titlePattern: "<meta property=\"og:title\" content=\"([^\"]+)\" />"
     contentPattern: "<div class=\"pjgm-postcontent\">(.+?)<div class=\"sharedaddy sd-sharing-enabled\">"
     nextPattern: "<a href=\"(http://unsongbook.com/[^\"]+/)\" rel=\"next\""
+}
+series {
+	name: "TheManWithNoName"
+	description: "The Man With No Name"
+	author: "Frostfyre7"
+	startPage: "http://m.fanfiction.net/s/3486089/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "VicodinnoJutsu"
+	description: "Vicodin no Jutsu"
+	author: "Omega19x"
+	startPage: "http://m.fanfiction.net/s/6044413/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TheMisfits"
+	description: "The Misfits"
+	author: "davidnm2007"
+	startPage: "http://m.fanfiction.net/s/4725962/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "LightingUptheDark"
+	description: "Lighting Up the Dark"
+	author: "Velorien"
+	startPage: "http://m.fanfiction.net/s/9311012/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "HogwartsBattleSchool"
+	description: "Hogwarts Battle School"
+	author: "Kwan Li"
+	startPage: "http://m.fanfiction.net/s/8379655/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "InFireForged"
+	description: "In Fire Forged"
+	author: "OmgImPwned"
+	startPage: "http://m.fanfiction.net/s/10263221/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "HermioneGrangerandthePerfectlyReasonableExplanation"
+	description: "Hermione Granger and the Perfectly Reasonable Explanation"
+	author: "Robin.Drew"
+	startPage: "http://m.fanfiction.net/s/9950232/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TeamAnko"
+	description: "Team Anko"
+	author: "EagleJarl"
+	startPage: "http://m.fanfiction.net/s/11087425/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "Indomitable"
+	description: "Indomitable"
+	author: "ShaperV"
+	startPage: "http://m.fanfiction.net/s/5207262/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "TheWavesArisen"
+	description: "The Waves Arisen"
+	author: "wertifloke"
+	startPage: "https://wertifloke.wordpress.com/2015/01/25/chapter-1/"
+	titlePattern: "<h1 class=\"entry-title\">(.*?)</h1>"
+	contentPattern: "<div class=\"entry-content\">(.*?)</div><!-- .entry-content -->"
+	nextPattern: "a href=\"(https://wertifloke.wordpress.com/[^\"]+)\" rel=\"next\""
+}
+series {
+	name: "MotherofLearning"
+	description: "Mother of Learning"
+	author: "nobody103"
+	startPage: "https://m.fictionpress.com/s/2961893/1"
+	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
+	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
+	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
+}
+series {
+	name: "GodsAreBastards"
+	description: "The Gods Are Bastards"
+	author: "D. D. Webb"
+	startPage: "https://tiraas.net/2014/08/20/book-1-prologue/"
+	titlePattern: "<h1 class=\"entry-title\">(.+?)</h1>"
+	contentPattern: "<div class=\"entry-content\">(.+?)<div id=\"jp-post-flair"
+	nextPattern: "<link rel='next' title='[^']+' href='([^']+)'"
+}
+series {
+	name:"NeedToBecomeStronger"
+	description: "The Need To Become Stronger"
+	author: "Sophronius"
+	startPage: "https://needtobecomestronger.wordpress.com/2016/10/17/chapter-1/"
+	titlePattern: "<meta property=\"og:title\" content=\"(.+?)\" />"
+	contentPattern: "<div class=\"entry-content\">(.+?)<div id=\"jp-post-flair"
+	nextPattern: "<link rel='next' title='[^']+' href='([^']+)'"
 }
