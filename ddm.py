@@ -1,7 +1,7 @@
 from common import *
 from urlgrab import Cache
 from re import compile, DOTALL, MULTILINE, sub
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 cache = Cache()
 
@@ -13,13 +13,14 @@ volumePattern = compile("<A HREF=\"(v\dcont.html)\"><IMG HEIGHT=\"\d+\" WIDTH=\"
 
 baseURL = "http://www.b5-dark-mirror.co.uk/"
 page = cache.get(baseURL, max_age = -1)
-data = page.read()
+data = page.read().decode('utf-8', errors='ignore')
 volumes = sorted(volumePattern.findall(data))
 
 for volumeUrl, volumeTitle in volumes:
-	print volumeTitle
+	print(volumeTitle)
 	title = "A Dark, Distorted Mirror: " + volumeTitle
-	toc = tocStart(title)
+	folder = join("books", title)
+	toc = tocStart(folder)
 	volumePage = cache.get(urljoin(baseURL, volumeUrl), max_age = -1).read()
 	splitPattern = compile("<HR><A NAME=\"P[A-Z\d]\"></A>")
 	chapterPattern = compile("<A HREF=\"(v\dp.+?.html)\">Chapter (\d+)</A>")
@@ -29,14 +30,14 @@ for volumeUrl, volumeTitle in volumes:
 		if chapters == []:
 			continue
 		part = sub('<[^>]*>', '', partPattern.findall(section)[0])
-		print "\t", part, chapters
+		print("\t", part, chapters)
 		for chapterUrl, _ in chapters:
 			url = urljoin(baseURL, chapterUrl)
-			print url
+			print(url)
 			chapterPage = cache.get(url, max_age = -1).read()
 			content = contentPattern.search(chapterPage).groups()[0]
+			content = content.replace("</BLOCKQUOTE>", "").replace("<BLOCKQUOTE>", "").replace("<BR>&nbsp; &nbsp; &nbsp; ", "<BR>")
 			chapterTitle = titlePattern.search(chapterPage).groups()[0]
-			generatePage(url, chapterTitle, content, title, toc)
+			generatePage(url, chapterTitle, content, folder, toc)
 	tocEnd(toc)
-	makeMobi(title, "Gareth Williams")
-	#break
+	makeMobi(folder, "Gareth Williams")
