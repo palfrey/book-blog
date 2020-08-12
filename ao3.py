@@ -14,7 +14,7 @@ id = id.groups()[0]
 navigate = "https://archiveofourown.org/works/%s/navigate"%id
 print(navigate)
 
-data = cache.get(navigate).read()
+data = cache.get(navigate, max_age = 60*60).read()
 info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a.+href=\"[^\"]+\"[^>]*>([^<]+)</a></h2>", data)
 (title, author) = info.groups()
 
@@ -34,9 +34,15 @@ folder = join("books", title)
 toc = tocStart(folder)
 
 newitems = False
-for volumeUrl, volumeTitle in list(volumes.values()):
+volumes = [x[1] for x in sorted(volumes.items())]
+for volumeUrl, volumeTitle in volumes:
 	print(volumeUrl, volumeTitle)
-	chapterPage = cache.get(urljoin(navigate, volumeUrl) + "?view_adult=true", max_age = -1).read()
+	age = 5 if volumes[-1][1] == volumeTitle else -1
+	# if volumeTitle.startswith("Chapter"):
+	# 	_, number = volumeTitle.split(" ", 2)
+	# 	volumeTitle = "Chapter %03d" % int(number)
+	# 	print(volumeTitle)
+	chapterPage = cache.get(urljoin(navigate, volumeUrl) + "?view_adult=true", max_age = age).read()
 	if type(chapterPage) != str:
 		chapterPage = str(chapterPage, "utf-8", "replace")
 	items = [summary, notes, mainContent]

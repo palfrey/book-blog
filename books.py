@@ -15,7 +15,7 @@ c.user_agent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.3) Geck
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)
 stripTags = compile("<[^>]+>");
-stripAnchorTags = compile("(?:<a[^>]+>)|(?:</a>)");
+stripAnchorTags = compile("(?:<a[^>]+>)|(?:</a>)|(?:<span style=\"color:#969696;\">)|(?:</span>)");
 
 # Kindle doesn't like various characters, so lets rewrite some of them...
 wrong = {
