@@ -14,3 +14,5 @@ pre-commit: sync
 
 blog_pb2.py: blog.proto
 	protoc blog.proto --python_out=. 
+
+setup: sync blog_pb2.py
