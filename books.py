@@ -3,14 +3,14 @@ from urlgrab import Cache
 from google.protobuf import text_format
 from blog_pb2 import All
 from re import compile, DOTALL, MULTILINE
-from os.path import exists, join
+from os.path import join
 from codecs import open
 from urllib.parse import urljoin
 from optparse import OptionParser
 from common import generatePage, tocStart, tocEnd, makeMobi
 
 c = Cache()
-c.user_agent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3"
+c.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 
 db = All()
 text_format.Merge(open("series.txt","rb","utf-8").read(),db)

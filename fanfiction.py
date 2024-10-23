@@ -15,7 +15,7 @@ author = author.groups()[0]
 id = re.search("/s/(\d+)", url)
 id = id.groups()[0]
 
-print """series {
+print("""series {
 	name: "%s"
 	description: "%s"
 	author: "%s"
@@ -23,5 +23,5 @@ print """series {
 	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
-}"""%(title[0].replace(" ",""), title[0], author, id)
+}"""%(title[0].replace(" ",""), title[0], author, id))
 

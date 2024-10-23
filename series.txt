@@ -37,7 +37,7 @@ series {
 	name: "PrinceoftheDarkKingdom"
 	description: "Prince of the Dark Kingdom"
 	author: "Mizuni-sama"
-	startPage: "http://m.fanfiction.net/s/3766574/1"
+	startPage: "https://m.fanfiction.net/s/3766574/1"
 	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
@@ -252,7 +252,7 @@ series {
 	name: "HermioneGrangerandthePerfectlyReasonableExplanation"
 	description: "Hermione Granger and the Perfectly Reasonable Explanation"
 	author: "Robin.Drew"
-	startPage: "http://m.fanfiction.net/s/9950232/1"
+	startPage: "https://m.fanfiction.net/s/9950232/1"
 	titlePattern: "<img src='/[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
@@ -310,4 +310,13 @@ series {
 	titlePattern: "<meta property=\"og:title\" content=\"(.+?)\" />"
 	contentPattern: "<div class=\"entry-content\">(.+?)<div id=\"jp-post-flair"
 	nextPattern: "<link rel='next' title='[^']+' href='([^']+)'"
+}
+series {
+	name: "PracticalGuideToEvil"
+	description: "A Practical Guide to Evil"
+	author: "erraticerrata"	
+	startPage: "https://practicalguidetoevil.wordpress.com/2015/03/25/prologue/"
+	titlePattern: "<h1 class=\"entry-title\">(.+?)</h1>"
+	contentPattern: "<div class=\"entry-content\">(.+?)<div id=\"jp-post-flair"
+	nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
 }

@@ -3,6 +3,5 @@ cache
 *_pb2.py
 dump.html
 dump
-.idea/
 *.pyc
-ENV/
+.vscode/
