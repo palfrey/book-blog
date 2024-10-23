@@ -1,7 +1,7 @@
 from common import *
 from re import compile, DOTALL, MULTILINE
 from urlgrab import Cache
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 linkPattern = compile("<h3><a href=\"(/[^\"]+)\">(.+?)</a></h3>")
 earlierPattern = compile("<a href='([^\']+)'>.+?Earlier Stories.+?</a>", DOTALL | MULTILINE)
@@ -16,7 +16,7 @@ pages = [url]
 cache = Cache()
 
 while True:
-	print url
+	print(url)
 	data = cache.get(url).read()
 	links = linkPattern.findall(data)
 
@@ -44,7 +44,7 @@ for mainPage in pages:
 		if newyear != year:
 			if year != None:
 				if int(newyear) < int(year):
-					raise Exception, (year, newyear)
+					raise Exception(year, newyear)
 				tocEnd(toc)
 				makeMobi(folder, "Simon Travaglia", newitems = newItems)
 				newItems = False
@@ -55,13 +55,13 @@ for mainPage in pages:
 		data = cache.get(url, max_age = -1).read()
 		episode = episodePattern.findall(data)
 		if len(episode) == 0:
-			print "Skipping", url
+			print("Skipping", url)
 			continue
-		print url
+		print(url)
 		title = titlePattern.findall(data)[0]
-		print title
+		print(title)
 		if title in skipTitles:
-			print "skipping", title
+			print("skipping", title)
 			continue
 		subtitle = subtitlePattern.findall(data)[0]
 		content = contentPattern.findall(data)[0]
@@ -75,7 +75,7 @@ for mainPage in pages:
 		if generatePage(url, title, subtitle + "<br />\n" + content, folder, toc):
 			newItems = True
 		#break
-	print links
+	print(links)
 
 tocEnd(toc)
 makeMobi(folder, "Simon Travaglia")

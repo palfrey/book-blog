@@ -2,7 +2,7 @@ from common import *
 from sys import argv
 from urlgrab import Cache
 from re import compile, DOTALL, MULTILINE, UNICODE
-from urlparse import urljoin
+from urllib.parse import urljoin
 from text2num import text2num
 
 cache = Cache()
@@ -27,7 +27,7 @@ if chapter != None:
 	title = chapter.groups()[0]
 	currentChapter = 1
 
-print "\"%s\"" % title
+print("\"%s\"" % title)
 
 toc = tocStart(title)
 memberPage = memberPattern.search(data)
@@ -47,14 +47,14 @@ if chapter != None:
 				chapterLinks[val] = l[0]
 
 	open("dump", "wb").write(memberData.encode("utf-8"))
-	print "links", chapterLinks
+	print("links", chapterLinks)
 
 while True:
 	if chapter !=None and url != chapterLinks[currentChapter]:
-		print "getting", currentChapter
+		print("getting", currentChapter)
 		url = urljoin(url, chapterLinks[currentChapter])
 		page = cache.get(url, max_age = -1)
-		print url
+		print(url)
 		data = page.read()
 	chapterTitle = titlePattern.findall(data)
 	chapterTitle = chapterPattern.search(chapterTitle[0])

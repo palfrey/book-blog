@@ -3,17 +3,10 @@ from os import mkdir, system
 from os.path import join, exists, getsize
 import platform
 
-try:
-	import hashlib
-except ImportError: # python < 2.5
-	import md5
-	hashlib = None
+import hashlib
 
 def hexdigest_md5(data):
-	if hashlib:
-		return hashlib.md5(data.encode("utf-8")).hexdigest()
-	else:
-		return md5.new(data).hexdigest()
+	return hashlib.md5(data.encode("utf-8")).hexdigest()
 
 def generatePage(page, title, content, folder, toc):
 	fname = str(hexdigest_md5(page) + ".html")
