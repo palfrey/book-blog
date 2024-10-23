@@ -5,3 +5,4 @@ dump.html
 dump
 *.pyc
 .vscode/
+.downloads/
