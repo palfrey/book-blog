@@ -8,7 +8,7 @@ click==7.0
     # via pip-tools
 pip-tools==4.3.0
     # via -r requirements.in
-protobuf==3.18.3
+protobuf==4.25.8
     # via -r requirements.in
 pycurl==7.43.0
     # via -r requirements.in
