@@ -17,4 +17,9 @@ jobs:
       - uses: asdf-vm/actions/install@v4
       - run: make sync
       - run: make pre-commit
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3      
+        with:
+            version: "3.x"
+      - run: make blog_pb2.py
       - run: uv run python books.py --help
