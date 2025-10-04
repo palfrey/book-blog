@@ -6,7 +6,7 @@ requirements.txt: requirements.in
 
 .PHONY: sync
 sync: requirements.txt .venv/bin/activate
-	./uv pip sync requirements.txt
+	./uv pip sync --strict requirements.txt
 
 .PHONY: pre-commit
 pre-commit: sync
