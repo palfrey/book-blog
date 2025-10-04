@@ -2,5 +2,4 @@ protobuf < 3.20
 pyxdg
 six
 requests
-
-pip-tools
+pre-commit
