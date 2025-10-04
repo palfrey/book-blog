@@ -8,21 +8,23 @@ from urllib.parse import urljoin
 cache = Cache()
 url = argv[1]
 
-id = re.search("/works/(\d+)", url)
+id = re.search(r"/works/(\d+)", url)
+assert id is not None
 id = id.groups()[0]
 
 navigate = "https://archiveofourown.org/works/%s/navigate"%id
 print(navigate)
 
-data = cache.get(navigate, max_age = 60*60).read()
-info = re.search("<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a.+href=\"[^\"]+\"[^>]*>([^<]+)</a></h2>", data)
+data = cache.get(navigate, max_age = 60*60).read().decode('utf-8')
+info = re.search(r"<h2 class=\"heading\">Chapter Index for <a href=\"/works/\d+\">([^<]+)</a> by <a.+href=\"[^\"]+\"[^>]*>([^<]+)</a></h2>", data)
+assert info is not None
 (title, author) = info.groups()
 
-titlePattern = re.compile("<h2 class=\"title heading\">\s+(.*?)\s+</h2>")
+titlePattern = re.compile(r"<h2 class=\"title heading\">\s+(.*?)\s+</h2>")
 summary = re.compile("<div[^>]+?class=\"summary module\"[^>]*?>(.+?)</div>", re.DOTALL|re.MULTILINE)
 notes = re.compile("<div.+?class=\"notes module\"[^>]*>(.+?)</div>", re.DOTALL|re.MULTILINE)
 mainContent = re.compile("<h3 class=\"landmark heading\" id=\"work\">Chapter Text</h3>(.*?)<!--/main-->", re.DOTALL|re.MULTILINE)
-volumePattern = re.compile("<li><a href=\"(/works/\d+/chapters/\d+)\">(\d+). ([^<]+)</a>")
+volumePattern = re.compile(r"<li><a href=\"(/works/\d+/chapters/\d+)\">(\d+). ([^<]+)</a>")
 
 volumes = sorted(volumePattern.findall(data))
 
@@ -43,12 +45,13 @@ for volumeUrl, volumeTitle in volumes:
 	# 	volumeTitle = "Chapter %03d" % int(number)
 	# 	print(volumeTitle)
 	chapterPage = cache.get(urljoin(navigate, volumeUrl) + "?view_adult=true", max_age = age).read()
-	if type(chapterPage) != str:
-		chapterPage = str(chapterPage, "utf-8", "replace")
+	if type(chapterPage) == bytes:
+		chapterPage = chapterPage.decode("utf-8", "replace")
 	items = [summary, notes, mainContent]
 	items = [x.search(chapterPage) for x in items]
 	items = [x.groups()[0] for x in items if x != None]
 	content = "\n".join(items)
 	newitems = generatePage(volumeUrl, volumeTitle, content, folder, toc) or newitems
 tocEnd(toc)
-makeMobi(folder, author, newitems)
+makeEpub(folder, author, newitems)
+#makeMobi(folder, author, newitems)
