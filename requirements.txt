@@ -26,7 +26,7 @@ pyxdg==0.28
     # via -r requirements.in
 requests==2.32.4
     # via -r requirements.in
-setuptools==75.2.0
+setuptools==78.1.1
     # via pip-tools
 six==1.16.0
     # via -r requirements.in
