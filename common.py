@@ -59,3 +59,9 @@ def makeMobi(folder, author, newitems = False):
 			raise Exception("Unknown system: %s" % platform.system())
 		print(cmd)
 		system(cmd)
+
+def makeEpub(folder, author, newitems = False):
+	if newitems or not exists(folder + ".epub"):
+		cmd = "rm -f book.zip && zip -j book.zip %s/* && ebook-convert book.zip \"%s.epub\" --output-profile kindle --margin-top 0 --margin-bottom 0 --margin-left 0 --authors=\"%s\" --input-encoding=utf-8 --level1-toc '//*[@class='toc_title']' --no-chapters-in-toc --toc-threshold=1 --max-toc-links=0" %(folder.replace(" ", "\\ ").replace("'", "\\'"), folder, author)
+		print(cmd)
+		system(cmd)

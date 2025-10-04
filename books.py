@@ -7,7 +7,7 @@ from os.path import join
 from codecs import open
 from urllib.parse import urljoin
 from optparse import OptionParser
-from common import generatePage, tocStart, tocEnd, makeMobi
+from common import generatePage, makeEpub, tocStart, tocEnd, makeMobi
 
 c = Cache()
 c.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
@@ -65,6 +65,7 @@ for s in series:
 	if s.description == "":
 		s.description = s.name
 	page = s.startPage
+	previousPages = [page]	
 	index = 1
 	while page!=None:
 		if opts.count == -1:
@@ -83,19 +84,23 @@ for s in series:
 			items = list(range(opts.count))
 
 		for x in items:
-			print(("generating", page))
+			print("generating", page)
 			age = -1
 			while True:
 				p = c.get(page, max_age=age)
+				print(p.hash())
 				data = p.read()
+
+				if isinstance(data, bytes):
+					data = data.decode('utf-8')
 
 				for k in wrong:
 					data = data.replace(k, wrong[k])
 
 				open("dump", "wb", "utf-8").write(data)
 
-				link = nextPattern.search(data)
-				if link == None and age == -1:
+				link = nextPattern.findall(data)
+				if link == [] and age == -1:
 					age = 3600
 				else:
 					break
@@ -110,15 +115,20 @@ for s in series:
 			content = stripAnchorTags.sub("", content)
 			assert len(content) > 30, (folder, page, content)
 			newitems = generatePage(page, title, content, folder, toc) or newitems
-			if link is not None:
-				link = link.groups()[0]
+			if link != []:
+				link = [l for l in link if l not in previousPages]
+				if link != []:
+					link = link[0]
 			newpage = urljoin(page, link)
+			if page.startswith("https://www.reddit.com/r/HFY/comments/egpn5l/retreat_hell_episode_11/"):
+				newpage = "https://www.reddit.com/r/HFY/comments/fekooj/retreat_hell_episode_115/"
+			previousPages.append(newpage)			
 			if page == None or newpage == page:
 				page = None
 				break
 			page = newpage + "?view_adult=true"
 		tocEnd(toc)
-		makeMobi(folder, s.author, newitems)
+		makeEpub(folder, s.author, newitems)
 
 		if page != None:
 			index +=1

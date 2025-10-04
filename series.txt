@@ -314,9 +314,18 @@ series {
 series {
 	name: "PracticalGuideToEvil"
 	description: "A Practical Guide to Evil"
-	author: "erraticerrata"	
+	author: "erraticerrata"
 	startPage: "https://practicalguidetoevil.wordpress.com/2015/03/25/prologue/"
 	titlePattern: "<h1 class=\"entry-title\">(.+?)</h1>"
 	contentPattern: "<div class=\"entry-content\">(.+?)<div id=\"jp-post-flair"
 	nextPattern: "<a href=\"([^\"]+)\" rel=\"next\">"
+}
+series {
+	name: "RetreatHell"
+	description: "Retreat, Hell"
+	author: "Ilithi_Dragon"
+	startPage: "https://www.reddit.com/r/HFY/comments/bfrj07/retreat_hell/"
+	titlePattern: "<h1 class=\"text-24 xs:text-20\">(.+?)</h1>"
+	contentPattern: "\]\s+</p><p>(.+?)</p><p>\s+\[<a rpl"
+	nextPattern: "href=\"(https://www.reddit.com/r/HFY/comments/[a-z0-9]+/ret[^\"]+)\"\s+rel=\"noopener nofollow ugc\""
 }

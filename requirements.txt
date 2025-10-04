@@ -2,17 +2,21 @@
 #    uv pip compile --python-version 3.12.2 --no-strip-extras requirements.in -o requirements.txt
 build==1.2.2.post1
     # via pip-tools
+certifi==2024.8.30
+    # via requests
+charset-normalizer==3.4.0
+    # via requests
 click==8.1.7
     # via pip-tools
+idna==3.10
+    # via requests
 packaging==24.1
     # via build
 pip==24.2
     # via pip-tools
 pip-tools==7.4.1
     # via -r requirements.in
-protobuf==5.28.3
-    # via -r requirements.in
-pycurl==7.45.3
+protobuf==3.19.6
     # via -r requirements.in
 pyproject-hooks==1.2.0
     # via
@@ -20,7 +24,13 @@ pyproject-hooks==1.2.0
     #   pip-tools
 pyxdg==0.28
     # via -r requirements.in
+requests==2.32.3
+    # via -r requirements.in
 setuptools==75.2.0
     # via pip-tools
+six==1.16.0
+    # via -r requirements.in
+urllib3==2.2.3
+    # via requests
 wheel==0.44.0
     # via pip-tools
