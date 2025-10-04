@@ -24,13 +24,13 @@ pyproject-hooks==1.2.0
     #   pip-tools
 pyxdg==0.28
     # via -r requirements.in
-requests==2.32.3
+requests==2.32.4
     # via -r requirements.in
 setuptools==75.2.0
     # via pip-tools
 six==1.16.0
     # via -r requirements.in
-urllib3==2.2.3
+urllib3==2.5.0
     # via requests
 wheel==0.44.0
     # via pip-tools
