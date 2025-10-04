@@ -10,10 +10,10 @@ click==8.1.7
     # via pip-tools
 idna==3.10
     # via requests
+importlib-metadata==8.7.0
+    # via build
 packaging==24.1
     # via build
-pip==24.2
-    # via pip-tools
 pip-tools==7.4.1
     # via -r requirements.in
 protobuf==3.19.6
@@ -24,13 +24,17 @@ pyproject-hooks==1.2.0
     #   pip-tools
 pyxdg==0.28
     # via -r requirements.in
-requests==2.32.3
+requests==2.32.4
     # via -r requirements.in
-setuptools==75.2.0
-    # via pip-tools
 six==1.16.0
     # via -r requirements.in
+tomli==2.2.1
+    # via
+    #   build
+    #   pip-tools
 urllib3==2.2.3
     # via requests
 wheel==0.44.0
     # via pip-tools
+zipp==3.23.0
+    # via importlib-metadata
