@@ -15,3 +15,4 @@ jobs:
       - uses: asdf-vm/actions/install@v4
       - run: make sync
       - run: make pre-commit
+      - run: uv run python books.py --help
