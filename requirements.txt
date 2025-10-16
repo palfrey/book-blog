@@ -20,7 +20,7 @@ platformdirs==4.4.0
     # via virtualenv
 pre-commit==4.3.0
     # via -r requirements.in
-protobuf==6.32.1
+protobuf==6.33.0
     # via -r requirements.in
 pyxdg==0.28
     # via -r requirements.in
