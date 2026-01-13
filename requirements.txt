@@ -32,5 +32,5 @@ six==1.16.0
     # via -r requirements.in
 urllib3==2.6.3
     # via requests
-virtualenv==20.34.0
+virtualenv==20.36.1
     # via pre-commit
