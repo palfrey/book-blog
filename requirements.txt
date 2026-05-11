@@ -36,7 +36,7 @@ requests==2.33.0
     # via -r requirements.in
 six==1.16.0
     # via -r requirements.in
-urllib3==2.6.3
+urllib3==2.7.0
     # via requests
 virtualenv==21.2.0
     # via pre-commit
