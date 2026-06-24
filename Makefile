@@ -12,7 +12,7 @@ sync: requirements.txt .venv/bin/activate
 pre-commit: sync
 	uv run pre-commit run -a
 
-blog_pb2.py: blog.proto
+blog_pb2.py: blog.proto .tool-versions
 	protoc blog.proto --python_out=. 
 
 setup: sync blog_pb2.py

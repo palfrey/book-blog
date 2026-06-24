@@ -24,7 +24,7 @@ platformdirs==4.4.0
     #   virtualenv
 pre-commit==4.3.0
     # via -r requirements.in
-protobuf==7.34.0
+protobuf==7.35.1
     # via -r requirements.in
 python-discovery==1.2.1
     # via virtualenv
