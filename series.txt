@@ -118,7 +118,7 @@ series {
 	name: "BranchesontheTreeofTime"
 	description: "Branches on the Tree of Time"
 	author: "alexanderwales"
-	startPage: "http://m.fanfiction.net/s/9658524/1"
+	startPage: "https://m.fanfiction.net/s/9658524/1"
 	titlePattern: "<img src='//[^']+/balloon.png' class='mt icons'>[\d,]+</a></span>(.+?)<br>"
 	contentPattern: "id='storycontent' >(.+?)</div></div>.*?<hr size=1"
 	nextPattern: "<a href='(/s/\d+/\d+/)'>Next &#187;</a>"
@@ -319,4 +319,13 @@ series {
 	titlePattern: "<h1 class=\"text-24 xs:text-20\">(.+?)</h1>"
 	contentPattern: "\]\s+</p><p>(.+?)</p><p>\s+\[<a rpl"
 	nextPattern: "href=\"(https://www.reddit.com/r/HFY/comments/[a-z0-9]+/ret[^\"]+)\"\s+rel=\"noopener nofollow ugc\""
+}
+series {
+	name:"DarkWizardOfDonkerk"
+	description: "The Dark Wizard of Donkerk"
+	author: "Alexander Wales"
+	startPage: "https://alexanderwales.com/the-dark-wizard-of-donkerk-chapter-1/"
+	titlePattern: "<span class=\"entry-title\">(.+?)</span>"
+	contentPattern: "widget_type=\"theme-post-content.default\".+?>(.+?)<div class=\"extra-hatom\">"
+	nextPattern: "<a href=\"(https://alexanderwales.com/[^\"]+?)\" rel=\"next\">"
 }
